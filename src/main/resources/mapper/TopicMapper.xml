@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.coding404.myweb.product.service.TopicMapper">
+  	
+  	<insert id="topicRegist" parameterType="TopicVO">
+  		insert into topic(top_writer,
+  						  top_title,
+  						  top_content
+  							)
+  		values(#{top_writer},
+  			   #{top_title},
+  			   #{top_content}
+  			  )
+  	</insert>
+  	
+  	<select id="getListAll" resultType="TopicVO">
+  		select * from topic
+  	</select>
+  	
+  	<select id="getListMe" resultType="TopicVO">
+  		select * from topic where top_writer = #{writer}
+  	</select>
+  	
+  	<select id="getDetail" resultType="TopicVO">
+  		select * from topic where top_id = #{top_id}
+  	</select>
+  	
+  	<update id="topicModify" parameterType="TopicVO">
+  		update topic set top_title,
+  						 top_content 
+  	</update>
+  	
+  	<select id="topicDelete">
+  		delete from topic where top_id = #{top_id}
+  	</select>
+  	
+  	
+  	
+  	
+  	
+  	
+  </mapper>
+  
